@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     headerTextContainer: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#ebebeb',
+        backgroundColor: '#f8f8f8',
         height: 60,
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
