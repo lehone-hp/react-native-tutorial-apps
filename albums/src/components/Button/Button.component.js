@@ -1,11 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const Button = () => {
+const Button = ({whenPressed, children}) => {
     return (
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity 
+            onPress={whenPressed}
+            style={styles.button}>
             <Text style={styles.buttonText}>
-                Click Me!
+                {children}
             </Text>
         </TouchableOpacity>
     );
@@ -27,7 +29,6 @@ const styles = StyleSheet.create({
         borderColor: '#007aff',
         borderWidth: 1,
         marginHorizontal: 5,
-
     }
 });
 

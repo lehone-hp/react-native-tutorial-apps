@@ -1,39 +1,41 @@
 import React from 'react';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet, Linking } from 'react-native';
 
 import Button from '../Button/Button.component';
 import Card from '../Card/Card.component';
 import CardSection from '../CardSection/CardSection.component';
 
 // Destructure album from props
-const AlbumDetail = ({album}) => {
+const AlbumDetail = ({ album }) => {
   // Destructure title, artist and thumbnail_image from album
-  const {title, artist, thumbnail_image, image} = album;
+  const { title, artist, thumbnail_image, image, url } = album;
 
   return (
     <Card>
       <CardSection>
         <View style={styles.thumbnailContainer}>
           <Image
-            style={ styles.thumbnailImage } 
-            source={{ uri: thumbnail_image}}/>
+            style={styles.thumbnailImage}
+            source={{ uri: thumbnail_image }} />
         </View>
-        <View style={ styles.headerContentContainer }>
-          <Text style={styles.headerText}>{ title }</Text>
-          <Text>{ artist }</Text>
+        <View style={styles.headerContentContainer}>
+          <Text style={styles.headerText}>{title}</Text>
+          <Text>{artist}</Text>
         </View>
       </CardSection>
       <CardSection>
         <Image
-          style={ styles.image } 
-          source={ {uri:  image} }/>
+          style={styles.image}
+          source={{ uri: image }} />
       </CardSection>
       <CardSection>
-        <Button />
+        <Button whenPressed={() => Linking.openURL(url)}>
+          Buy Now!!
+        </Button>
       </CardSection>
     </Card>
   );
-}; 
+};
 
 const styles = StyleSheet.create({
   headerContentContainer: {
